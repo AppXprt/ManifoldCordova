@@ -572,7 +572,8 @@ function processWindowsPhoneIcons(manifestIcons, manifestSplashScreens) {
 module.exports = function (context) {
     logger.log('Updating Cordova configuration from W3C manifest...');
 
-    Q = context.requireCordovaModule('q');
+    var q = require('q');
+    var Q = context.q;
 
     // Get base path for default icons
     defaultIconsBaseDir = 'plugins/' + context.opts.plugin.id + '/assets/defaultImages';
