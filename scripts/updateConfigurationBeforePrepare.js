@@ -111,16 +111,16 @@ function processImageList(images, baseUrl) {
 
 // Configure Cordova configuration parser
 function configureParser(context) {
-    var cordova_util = context.requireCordovaModule('cordova-lib/src/cordova/util');
+    var cordova_util = require('cordova-lib/src/cordova/util');
     var ConfigParser;
     try {
-        ConfigParser = context.requireCordovaModule('cordova-lib/node_modules/cordova-common').ConfigParser;
+        ConfigParser = require('cordova-lib/node_modules/cordova-common').ConfigParser;
     } catch (err) {
         // Fallback to old location of config parser (old versions of cordova-lib)
-        ConfigParser = context.requireCordovaModule('cordova-lib/src/configparser/ConfigParser');
+        ConfigParser = require('cordova-lib/src/configparser/ConfigParser');
     }
     
-    etree = context.requireCordovaModule('cordova-lib/node_modules/elementtree');
+    etree = require('cordova-lib/node_modules/elementtree');
 
     var xml = cordova_util.projectConfig(projectRoot);
     config = createConfigParser(xml, etree, ConfigParser);   
@@ -572,8 +572,8 @@ function processWindowsPhoneIcons(manifestIcons, manifestSplashScreens) {
 module.exports = function (context) {
     logger.log('Updating Cordova configuration from W3C manifest...');
 
-    var q = require('q');
-    var Q = context.q;
+    var Q = require('q');
+    //var Q = context.q;
 
     // Get base path for default icons
     defaultIconsBaseDir = 'plugins/' + context.opts.plugin.id + '/assets/defaultImages';
