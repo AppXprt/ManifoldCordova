@@ -51,7 +51,7 @@ The plugin behavior is mostly implemented at build time by mapping properties in
 
 This mapping process is handled by a hook that executes during the **before_prepare** stage of the Cordova build process. The hook updates the **config.xml** file with values obtained from the manifest. 
 
-The plugin hook also handles downloading any icons that are specified in the manifest and copies them to the application’s directory, using their dimensions, and possibly their pixel density, to classify them as either an icon or a splash screen, as well as determining the platform for which they are suitable (e.g. iOS, Android, Windows, etc.). It uses this information to configure the corresponding icon and splash elements for each supported platform.
+The plugin hook also handles downloading any icons that are specified in the manifest and copies them to the application’s directory, using their dimensions, and possibly their pixel density, to classify them as either an icon or a splash screen, as well as determining the platform for which they are suitable (e.g. iOS, Android, etc.). It uses this information to configure the corresponding icon and splash elements for each supported platform.
 
 ## Getting Started
 
@@ -97,7 +97,7 @@ Very briefly, these are the steps that are needed to use plugins:
   {
     ...
     "mjs_api_access": [
-      { "match": "http://yoursite.com/path1/*", "platform": "android, ios, windows", "access": "cordova" },
+      { "match": "http://yoursite.com/path1/*", "platform": "android, ios", "access": "cordova" },
       ...
     ]
   }
@@ -193,11 +193,6 @@ For example, the following manifest references icons from the _/resources_ path 
             "sizes": "80x80"
         },
         ...
-        {
-            "src": "/resources/windows/icons/Square44x44Logo.scale-240.png",
-            "sizes": "106x106"
-        },
-        ...
     ],
     "scope": "/racer/",
     "start_url": "http://www.racer2k.net/racer/start.html",
@@ -267,16 +262,8 @@ Disables offline page support.
 `hostedwebapp.disableOfflinePage()`
 
 ## Supported Platforms
-Windows 8.1  
-Windows Phone 8.1  
 iOS  
 Android
-
-### Windows and Windows Phone Quirks
-
-Cordova for Android and iOS platforms provide a security policy to control which network requests triggered by the page (css, js, images, XHRs, etc.) are allowed to be made; this means that they will be blocked if they don't match the `origin` attribute of any of the `<access>` elements defined in the Cordova configuration file (**config.xml**).
-
-The Windows and Windows Phone platforms do not provide control for these kind of requests, and they will be allowed.
 
 ## Changelog
 
