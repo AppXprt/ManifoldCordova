@@ -6,7 +6,6 @@
     "id": "cordova-plugin-hostedwebapp",
     "platforms": [
       "android",
-      "windows",
       "ios"
     ]
   },
@@ -21,7 +20,6 @@
     "web",
     "ecosystem:cordova",
     "cordova-android",
-    "cordova-windows",
     "cordova-ios"
   ],
   "author": "",
