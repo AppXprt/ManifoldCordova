@@ -43,13 +43,6 @@
         <source-file src="src/android/HostedWebApp.java" target-dir="src/com/manifoldjs/hostedwebapp" />
     </platform>
 
-    <!-- windows -->
-    <platform name="windows">
-      <js-module src="src/windows/HostedWebAppPluginProxy.js" name="HostedWebAppPluginProxy">
-        <merges target="" />
-      </js-module>
-    </platform>
-
     <!-- ios -->
     <platform name="ios">
       <config-file target="config.xml" parent="/*">
