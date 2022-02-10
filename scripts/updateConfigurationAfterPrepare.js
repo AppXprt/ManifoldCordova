@@ -20,16 +20,16 @@ var logger = {
 
 // Configure Cordova configuration parser
 function configureParser(context) {
-  var cordova_util = context.requireCordovaModule('cordova-lib/src/cordova/util');
+  var cordova_util = require('cordova-lib/src/cordova/util');
   var ConfigParser;
   try {
-    ConfigParser = context.requireCordovaModule('cordova-lib/node_modules/cordova-common').ConfigParser;
+    ConfigParser = require('cordova-lib/node_modules/cordova-common').ConfigParser;
   } catch (err) {
     // Fallback to old location of config parser (old versions of cordova-lib)
-    ConfigParser = context.requireCordovaModule('cordova-lib/src/configparser/ConfigParser');
+    ConfigParser = require('cordova-lib/src/configparser/ConfigParser');
   }
     
-  etree = context.requireCordovaModule('cordova-lib/node_modules/elementtree');
+  etree = require('cordova-lib/node_modules/elementtree');
 
   var xml = cordova_util.projectConfig(projectRoot);
   config = createConfigParser(xml, etree, ConfigParser);
