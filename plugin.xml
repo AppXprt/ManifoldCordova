@@ -14,8 +14,6 @@
 
     <hook type="before_prepare" src="scripts/updateConfigurationBeforePrepare.js" />
     <hook type="after_prepare" src="scripts/updateConfigurationAfterPrepare.js" />
-    <hook type="after_prepare" src="scripts/replaceWindowsWrapperFiles.js" />
-    <hook type="before_plugin_rm" src="scripts/rollbackWindowsWrapperFiles.js" />
 
     <js-module src="www/hostedWebApp.js" name="hostedwebapp">
         <clobbers target="hostedwebapp" />
