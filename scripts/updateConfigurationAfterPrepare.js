@@ -4,9 +4,9 @@ var createConfigParser = require('./createConfigParser'),
 	fs = require('fs'),
 	path = require('path'),
 	config,
-  windowsConfig,
-  androidConfig,
-  iosConfig,
+    	windowsConfig,
+    	androidConfig,
+    	iosConfig,
 	projectRoot,
 	etree;
 
