@@ -69,8 +69,10 @@ module.exports = function (context) {
   if (!fs.existsSync(windowsPath)) {
     return;
   }
+
+  var q = require('q');
+  var Q = context.q;
   
-  Q = context.requireCordovaModule('q');
   var task = Q.defer();
 
   var destPath = path.join(projectRoot, "platforms", "windows", "www", "wrapper.html");
