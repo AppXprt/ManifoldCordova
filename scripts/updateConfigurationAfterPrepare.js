@@ -4,7 +4,6 @@ var createConfigParser = require('./createConfigParser'),
 	fs = require('fs'),
 	path = require('path'),
 	config,
-    	windowsConfig,
     	androidConfig,
     	iosConfig,
 	projectRoot,
@@ -33,12 +32,6 @@ function configureParser(context) {
 
   var xml = cordova_util.projectConfig(projectRoot);
   config = createConfigParser(xml, etree, ConfigParser);
-    
-  var windowsDir = path.join(projectRoot, 'platforms', 'windows');
-  if (fs.existsSync(windowsDir)) {
-	  var windowsXml = cordova_util.projectConfig(windowsDir);
-	  windowsConfig = createConfigParser(windowsXml, etree, ConfigParser);
-  }
   
   var androidDir = path.join(projectRoot, 'platforms', 'android', 'res', 'xml');
   if (fs.existsSync(androidDir)) {
@@ -69,14 +62,6 @@ module.exports = function (context) {
 
   // save the updated configuration
   config.write();
-
-  if (windowsConfig) {
-    // Remove default images from windows configuration file
-    windowsConfig.removeElements('.//icon[@hap-default-image=\'yes\']');
-    windowsConfig.removeElements('.//splash[@hap-default-image=\'yes\']');
-    
-    windowsConfig.write();
-  }
   
   if (androidConfig) {
     // Remove default images from android configuration file
