@@ -527,48 +527,6 @@ function processAndroidIcons(manifestIcons, manifestSplashScreens) {
     processDefaultIconsByDensity('android', screenDensities, iconDensities);
 }
 
-function processWindowsIcons(manifestIcons, manifestSplashScreens) {
-    var iconSizes = [
-        "30x30",
-        "44x44",
-        "106x106",
-        "70x70",
-        "71x71",
-        "170x170",
-        "150x150",
-        "360x360",
-        "310x310",
-        "50x50",
-        "120x120",
-        "310x150",
-        "744x360"
-    ];
-
-    var splashScreenSizes = [
-        "620x300",
-        "1152x1920"
-    ];
-
-    processImagesBySize('windows', manifestIcons, splashScreenSizes, iconSizes);
-    processImagesBySize('windows', manifestSplashScreens, splashScreenSizes, []);
-    processDefaultIconsBySize('windows', splashScreenSizes, iconSizes);
-};
-
-function processWindowsPhoneIcons(manifestIcons, manifestSplashScreens) {
-    var iconSizes = [
-        "62x62",
-        "173x173"
-    ];
-
-    var splashScreenSizes = [
-        "480x800"
-    ];
-
-    processImagesBySize('wp8', manifestIcons, splashScreenSizes, iconSizes);
-    processImagesBySize('wp8', manifestSplashScreens, splashScreenSizes, []);
-    processDefaultIconsBySize('wp8', splashScreenSizes, iconSizes);
-};
-
 module.exports = function (context) {
     logger.log('Updating Cordova configuration from W3C manifest...');
 
@@ -663,9 +621,7 @@ module.exports = function (context) {
           // Configure the icons once all icon files are downloaded
           processiOSIcons(manifestIcons, manifestSplashScreens);
           processAndroidIcons(manifestIcons, manifestSplashScreens);
-          processWindowsIcons(manifestIcons, manifestSplashScreens);
-          processWindowsPhoneIcons(manifestIcons, manifestSplashScreens);
-          
+
           // save the updated configuration
           config.write();
           
