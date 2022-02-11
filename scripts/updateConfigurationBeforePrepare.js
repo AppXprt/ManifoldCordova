@@ -117,10 +117,10 @@ function configureParser(context) {
         ConfigParser = require('cordova-lib/node_modules/cordova-common').ConfigParser;
     } catch (err) {
         // Fallback to old location of config parser (old versions of cordova-lib)
-        ConfigParser = require('configparser');
+        ConfigParser = require('/cordova-lib/src/configparser/ConfigParser');
     }
     
-    etree = require('elementtree');
+    etree = require('cordova-lib/node_modules/elementtree');
 
     var xml = cordova_util.projectConfig(projectRoot);
     config = createConfigParser(xml, etree, ConfigParser);   
