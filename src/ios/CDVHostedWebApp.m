@@ -9,7 +9,7 @@ static NSString* const DEFAULT_CORDOVA_BASE_URL = @"";
 
 @interface CDVHostedWebApp ()
 
-@property UIWebView *offlineView;
+@property WKWebView *offlineView;
 @property NSString *offlinePage;
 @property NSString *manifestError;
 @property BOOL enableOfflineSupport;
@@ -249,7 +249,6 @@ static NSString* const defaultManifestFileName = @"manifest.json";
         }
     }
     
-    //return[(UIWebView*)self.webView stringByEvaluatingJavaScriptFromString:content] != nil;
     [(WKWebView*)self.webView evaluateJavaScript:content completionHandler:NULL];
     return TRUE; //HACK: Return result is returned asynchronously, so this really needs to be changed to have a completion callback instead as well 
 }
@@ -350,7 +349,7 @@ static NSString* const defaultManifestFileName = @"manifest.json";
 
     webViewBounds.origin = self.webView.bounds.origin;
 
-    self.offlineView = [[UIWebView alloc] initWithFrame:webViewBounds];
+    self.offlineView = [[WKWebView alloc] initWithFrame:webViewBounds];
     self.offlineView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [self.offlineView setHidden:YES];
 
