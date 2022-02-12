@@ -510,7 +510,7 @@ static NSString* const defaultManifestFileName = @"manifest.json";
 }
 
 #ifndef __CORDOVA_4_0_0
-- (BOOL)shouldOverrideLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType
+- (BOOL)shouldOverrideLoadWithRequest:(NSURLRequest*)request navigationType:(WKNavigationTypeLinkActivated)navigationType
 {
     NSURL* url = [request URL];
 
