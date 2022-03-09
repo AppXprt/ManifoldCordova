@@ -459,7 +459,7 @@ static NSString* const defaultManifestFileName = @"manifest.json";
                 [scripts addObject:@"cordova.js"];
             }
             
-            [scripts addObject:@"plugins/cordova-plugin-wkwebview-engine/src/www/ios/ios-wkwebview-exec.js"];
+            //[scripts addObject:@"plugins/cordova-plugin-wkwebview-engine/src/www/ios/ios-wkwebview-exec.js"]; // No longer Required in Cordova IOS 6+ - Commented for Reference
             [scripts addObject:@"hostedapp-bridge.js"];
             [self injectScripts:scripts];
         }
